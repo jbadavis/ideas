@@ -9,16 +9,28 @@ exports[`App should match snapshot 1`] = `
   </h1>
   <Idea
     description="description one"
+    editing={false}
+    handleDeleteIdea={[Function]}
+    handleEditIdea={[Function]}
+    handleUpdateIdea={[Function]}
     key="0"
+    time="time one"
     title="title one"
   />
   <Idea
-    description="description one"
+    description="description two"
+    editing={true}
+    handleDeleteIdea={[Function]}
+    handleEditIdea={[Function]}
+    handleUpdateIdea={[Function]}
     key="1"
-    title="title one"
+    time="time two"
+    title="title two"
   />
-  <button>
-    Add Idea
+  <button
+    onClick={[Function]}
+  >
+    Add
   </button>
 </div>
 `;

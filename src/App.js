@@ -1,14 +1,68 @@
-import React from "react";
-import Idea from "./Idea";
+import React from 'react';
+import { format } from "date-fns";
+import Idea from './Idea';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ...this.props.initialState
+      ...this.props.initialState,
     };
   }
+
+  handleAddIdea = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      ideas: [
+        ...prevState.ideas,
+        {
+          title: '',
+          description: '',
+          time: '',
+          editing: true,
+        },
+      ],
+    }));
+  };
+
+  handleUpdateIdea = num => (title, description) => {
+    this.setState(prevState => ({
+      ...prevState,
+      ideas: prevState.ideas.map((idea, i) => {
+        if (num === i) {
+          idea.description = description;
+          idea.editing = !idea.editing;
+          idea.time = format(new Date(), 'HH:mm Qo MMM yy');
+          idea.title = title;
+        }
+
+        return idea;
+      }),
+    }));
+  };
+
+  handleDeleteIdea = num => () => {
+    this.setState(prevState => ({
+      ...prevState,
+      ideas: prevState.ideas.filter((idea, i) => i !== num),
+    }));
+  };
+
+  handleEditIdea = num => () => {
+    this.setState(prevState => ({
+      ...prevState,
+      ideas: prevState.ideas.map((idea, i) => {
+        if (num === i) {
+          idea.editing = !idea.editing;
+
+          return idea;
+        }
+
+        return idea;
+      }),
+    }));
+  };
 
   render() {
     return (
@@ -17,10 +71,13 @@ class App extends React.Component {
         {this.state.ideas.map((idea, i) => (
           <Idea
             key={i}
+            handleUpdateIdea={this.handleUpdateIdea(i)}
+            handleDeleteIdea={this.handleDeleteIdea(i)}
+            handleEditIdea={this.handleEditIdea(i)}
             {...idea}
           />
         ))}
-        <button>Add Idea</button>
+        <button onClick={this.handleAddIdea}>Add</button>
       </div>
     );
   }

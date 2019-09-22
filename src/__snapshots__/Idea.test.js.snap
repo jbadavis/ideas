@@ -1,12 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Idea should match snapshot 1`] = `
+exports[`Idea if editing is falsy should update state 1`] = `
 <div>
-  <h2>
-    title
-  </h2>
-  <p>
-    description
-  </p>
+  <div>
+    <h2>
+      title
+    </h2>
+    <h4>
+      time
+    </h4>
+    <p>
+      description
+    </p>
+    <button
+      className="edit"
+      onClick={[Function]}
+    >
+      Edit
+    </button>
+    <button
+      className="delete"
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Idea if editing is truthy should match snapshot 1`] = `
+<div>
+  <form>
+    Edit
+  </form>
 </div>
 `;

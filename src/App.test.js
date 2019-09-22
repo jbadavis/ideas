@@ -8,15 +8,37 @@ describe('App', () => {
       {
         title: 'title one',
         description: 'description one',
+        time: 'time one',
+        editing: false,
       },
       {
-        title: 'title one',
-        description: 'description one',
+        title: 'title two',
+        description: 'description two',
+        time: 'time two',
+        editing: true,
       },
     ],
   };
 
+  const component = shallow(<App initialState={initialStateMock} />);
+
   it('should match snapshot', () => {
-    expect(shallow(<App initialState={initialStateMock} />)).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
+  });
+
+  describe('if the Add CTA is clicked', () => {
+    it('should update state', () => {
+      component.find('button').simulate('click');
+
+      expect(component.state('ideas')).toEqual([
+        ...initialStateMock.ideas,
+        {
+          title: '',
+          description: '',
+          time: '',
+          editing: true,
+        },
+      ]);
+    });
   });
 });
