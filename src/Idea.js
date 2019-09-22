@@ -1,4 +1,5 @@
 import React from 'react';
+import AddIdea from './AddIdea'
 
 const Idea = ({
   description,
@@ -11,7 +12,11 @@ const Idea = ({
 }) => (
   <div>
     {editing ? (
-      <form>Edit</form>
+      <AddIdea
+        title={title}
+        description={description}
+        handleUpdateIdea={handleUpdateIdea}
+      />
     ) : (
       <div>
         <h2>{title}</h2>

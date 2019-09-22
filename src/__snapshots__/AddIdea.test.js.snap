@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Idea should match snapshot 1`] = `
+<AddIdea
+  description="description"
+  handleUpdateIdea={[Function]}
+  title="title"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Name:
+      <input
+        className="title"
+        name="title"
+        onChange={[Function]}
+        type="text"
+        value="title"
+      />
+    </label>
+    <label>
+      Description
+      <textarea
+        className="description"
+        name="description"
+        onChange={[Function]}
+        value="description"
+      />
+    </label>
+    <input
+      className="submit"
+      type="submit"
+      value="Save"
+    />
+  </form>
+</AddIdea>
+`;

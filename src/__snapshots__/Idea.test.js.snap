@@ -30,8 +30,10 @@ exports[`Idea if editing is falsy should update state 1`] = `
 
 exports[`Idea if editing is truthy should match snapshot 1`] = `
 <div>
-  <form>
-    Edit
-  </form>
+  <AddIdea
+    description="description"
+    handleUpdateIdea={[Function]}
+    title="title"
+  />
 </div>
 `;
