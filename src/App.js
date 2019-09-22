@@ -1,7 +1,29 @@
-import React, {Component} from 'react';
+import React from "react";
+import Idea from "./Idea";
 
-export default class App extends Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      ...this.props.initialState
+    };
+  }
+
   render() {
-    return <h1>Hello, World!</h1>;
+    return (
+      <div className="App">
+        <h1>Ideas</h1>
+        {this.state.ideas.map((idea, i) => (
+          <Idea
+            key={i}
+            {...idea}
+          />
+        ))}
+        <button>Add Idea</button>
+      </div>
+    );
   }
 }
+
+export default App;

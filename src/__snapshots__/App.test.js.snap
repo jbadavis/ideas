@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Ideas
+  </h1>
+  <Idea
+    description="description one"
+    key="0"
+    title="title one"
+  />
+  <Idea
+    description="description one"
+    key="1"
+    title="title one"
+  />
+  <button>
+    Add Idea
+  </button>
+</div>
+`;

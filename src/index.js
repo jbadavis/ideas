@@ -3,4 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const initialState = {ideas: []};
+
+ReactDOM.render(
+  <App initialState={initialState} />,
+  document.getElementById('root'),
+);
