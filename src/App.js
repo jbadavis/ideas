@@ -1,5 +1,7 @@
 import React from 'react';
 import Idea from './Idea';
+import sortIdeasAlphabetically from './utils/sortIdeasAlphabetically';
+import sortIdeasByDate from './utils/sortIdeasByDate';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,8 +9,21 @@ class App extends React.Component {
 
     this.state = {
       ...this.props.initialState,
+      sort: '',
     };
   }
+
+  handleSortChange = e => {
+    const value = e.target.value;
+    const sortMethod =
+      value === 'date' ? sortIdeasByDate : sortIdeasAlphabetically;
+
+    this.setState(state => ({
+      ...state,
+      sort: value,
+      ideas: sortMethod(state.ideas),
+    }));
+  };
 
   handleAddIdea = () => {
     this.setState(prevState => ({
@@ -67,6 +82,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Ideas</h1>
+        <label>
+          Sort:
+          <select onChange={this.handleSortChange}> 
+            <option />
+            <option value="alphabetically">Alphabetically</option>
+            <option value="date">Date</option>
+          </select>
+        </label>
         {this.state.ideas.map((idea, i) => (
           <Idea
             key={i}

@@ -1,6 +1,11 @@
 import React from 'react';
 import App from './App';
 import {shallow} from 'enzyme';
+import sortIdeasAlphabetically from './utils/sortIdeasAlphabetically';
+import sortIdeasByDate from './utils/sortIdeasByDate';
+
+jest.mock('./utils/sortIdeasAlphabetically');
+jest.mock('./utils/sortIdeasByDate');
 
 describe('App', () => {
   const initialStateMock = {
@@ -20,7 +25,18 @@ describe('App', () => {
     ],
   };
 
-  const component = shallow(<App initialState={initialStateMock} />);
+  let component;
+
+  beforeEach(() => {
+    sortIdeasAlphabetically.mockReturnValueOnce(initialStateMock.ideas);
+    sortIdeasByDate.mockReturnValueOnce(initialStateMock.ideas);
+
+    component = shallow(<App initialState={initialStateMock} />);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('should match snapshot', () => {
     expect(component).toMatchSnapshot();
@@ -39,6 +55,26 @@ describe('App', () => {
           editing: true,
         },
       ]);
+    });
+  });
+
+  describe('if the date alphabetically option is selected', () => {
+    it('should call sortIdeasAlphabetically', () => {
+      component
+        .find('select')
+        .simulate('change', {target: {value: 'alphabetically'}});
+
+      expect(sortIdeasAlphabetically).toHaveBeenCalledWith(
+        initialStateMock.ideas,
+      );
+    });
+  });
+
+  describe('if the date sort option is selected', () => {
+    it('should call sortIdeasByDate', () => {
+      component.find('select').simulate('change', {target: {value: 'date'}});
+
+      expect(sortIdeasByDate).toHaveBeenCalledWith(initialStateMock.ideas);
     });
   });
 });

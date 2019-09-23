@@ -7,6 +7,24 @@ exports[`App should match snapshot 1`] = `
   <h1>
     Ideas
   </h1>
+  <label>
+    Sort:
+    <select
+      onChange={[Function]}
+    >
+      <option />
+      <option
+        value="alphabetically"
+      >
+        Alphabetically
+      </option>
+      <option
+        value="date"
+      >
+        Date
+      </option>
+    </select>
+  </label>
   <Idea
     description="description one"
     editing={false}
