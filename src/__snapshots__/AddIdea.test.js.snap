@@ -12,6 +12,7 @@ exports[`Idea should match snapshot 1`] = `
     <label>
       Name:
       <input
+        autoFocus={true}
         className="title"
         name="title"
         onChange={[Function]}

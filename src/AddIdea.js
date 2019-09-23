@@ -32,6 +32,7 @@ class AddIdea extends React.Component {
         <label>
           Name:
           <input
+            autoFocus
             className="title"
             type="text"
             name="title"
