@@ -6,9 +6,7 @@ exports[`Idea if editing is falsy should update state 1`] = `
     <h2>
       title
     </h2>
-    <h4>
-      time
-    </h4>
+    <h4 />
     <p>
       description
     </p>

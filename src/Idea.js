@@ -1,5 +1,6 @@
 import React from 'react';
-import AddIdea from './AddIdea'
+import {format} from 'date-fns';
+import AddIdea from './AddIdea';
 
 const Idea = ({
   description,
@@ -8,7 +9,7 @@ const Idea = ({
   handleDeleteIdea,
   handleEditIdea,
   time,
-  title
+  title,
 }) => (
   <div>
     {editing ? (
@@ -20,10 +21,14 @@ const Idea = ({
     ) : (
       <div>
         <h2>{title}</h2>
-        <h4>{time}</h4>
+        <h4>{format(time, 'hh:mm aaa d/M/yy')}</h4>
         <p>{description}</p>
-        <button className="edit" onClick={handleEditIdea}>Edit</button>
-        <button className="delete" onClick={handleDeleteIdea}>Delete</button>
+        <button className="edit" onClick={handleEditIdea}>
+          Edit
+        </button>
+        <button className="delete" onClick={handleDeleteIdea}>
+          Delete
+        </button>
       </div>
     )}
   </div>

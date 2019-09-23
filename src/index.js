@@ -8,13 +8,13 @@ const initialState = {
     {
       title: 'title one',
       description: 'description one',
-      time: 'time one',
+      time: new Date(),
       editing: false,
     },
     {
       title: 'title two',
       description: 'description two',
-      time: 'time two',
+      time: new Date(),
       editing: true,
     },
   ],

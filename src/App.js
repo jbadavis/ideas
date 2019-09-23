@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from "date-fns";
 import Idea from './Idea';
 
 class App extends React.Component {
@@ -33,7 +32,7 @@ class App extends React.Component {
         if (num === i) {
           idea.description = description;
           idea.editing = !idea.editing;
-          idea.time = format(new Date(), 'HH:mm Qo MMM yy');
+          idea.time = new Date();
           idea.title = title;
         }
 

@@ -1,11 +1,15 @@
 import React from 'react';
+import {format} from 'date-fns';
 import Idea from './Idea';
 import {shallow} from 'enzyme';
+
+jest.mock('date-fns');
 
 describe('Idea', () => {
   const handleUpdateIdea = jest.fn();
   const handleDeleteIdea = jest.fn();
   const handleEditIdea = jest.fn();
+  const timeMock = 'time';
 
   describe('if editing is truthy', () => {
     it('should match snapshot', () => {
@@ -14,7 +18,7 @@ describe('Idea', () => {
           <Idea
             title="title"
             description="description"
-            time="time"
+            time={timeMock}
             editing={true}
             handleUpdateIdea={handleUpdateIdea}
             handleDeleteIdea={handleDeleteIdea}
@@ -30,7 +34,7 @@ describe('Idea', () => {
       <Idea
         title="title"
         description="description"
-        time="time"
+        time={timeMock}
         editing={false}
         handleUpdateIdea={handleUpdateIdea}
         handleDeleteIdea={handleDeleteIdea}
@@ -40,6 +44,10 @@ describe('Idea', () => {
 
     it('should update state', () => {
       expect(component).toMatchSnapshot();
+    });
+
+    it('should call date-fns format correctly', () => {
+      expect(format).toHaveBeenCalledWith(timeMock, 'hh:mm aaa d/M/yy');
     });
 
     describe('if the edit CTA is clicked', () => {
