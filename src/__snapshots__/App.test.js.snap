@@ -1,54 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should match snapshot 1`] = `
-<div
-  className="App"
->
-  <h1>
-    Ideas
-  </h1>
-  <label>
-    Sort:
-    <select
-      onChange={[Function]}
-    >
-      <option />
-      <option
-        value="alphabetically"
-      >
-        Alphabetically
-      </option>
-      <option
-        value="date"
-      >
-        Date
-      </option>
-    </select>
-  </label>
-  <Idea
-    description="description one"
-    editing={false}
-    handleDeleteIdea={[Function]}
-    handleEditIdea={[Function]}
-    handleUpdateIdea={[Function]}
-    key="0"
-    time="time one"
-    title="title one"
-  />
-  <Idea
-    description="description two"
-    editing={true}
-    handleDeleteIdea={[Function]}
-    handleEditIdea={[Function]}
-    handleUpdateIdea={[Function]}
-    key="1"
-    time="time two"
-    title="title two"
-  />
-  <button
-    onClick={[Function]}
+<div>
+  <header
+    className="header"
   >
-    Add
-  </button>
+    <h1>
+      Ideas
+    </h1>
+    <label>
+      Sort:
+      <select
+        className="sortSelect"
+        onChange={[Function]}
+      >
+        <option />
+        <option
+          value="alphabetically"
+        >
+          Alphabetically
+        </option>
+        <option
+          value="date"
+        >
+          Date
+        </option>
+      </select>
+    </label>
+    <button
+      className="addIdea"
+      onClick={[Function]}
+    >
+      Add Idea
+    </button>
+  </header>
+  <main>
+    <div
+      className="ideas"
+    >
+      <Idea
+        description="description one"
+        editing={false}
+        handleDeleteIdea={[Function]}
+        handleEditIdea={[Function]}
+        handleUpdateIdea={[Function]}
+        key="0"
+        time="time one"
+        title="title one"
+      />
+      <Idea
+        description="description two"
+        editing={true}
+        handleDeleteIdea={[Function]}
+        handleEditIdea={[Function]}
+        handleUpdateIdea={[Function]}
+        key="1"
+        time="time two"
+        title="title two"
+      />
+    </div>
+  </main>
 </div>
 `;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './AddIdea.module.css';
+
 const MAX_CHARS = 140;
 
 class AddIdea extends React.Component {
@@ -49,32 +51,35 @@ class AddIdea extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input
-            autoFocus
-            className="title"
-            type="text"
-            name="title"
-            onChange={e => this.handleTitleChange(e)}
-            value={this.state.title}
-          />
-        </label>
-        <label>
-          Description
-          <textarea
-            className="description"
-            name="description"
-            onChange={e => this.handleDescriptionChange(e)}
-            value={this.state.description}
-          />
-        </label>
-        <span>
-          {this.state.count}/{MAX_CHARS}
-        </span>
-        <input className="submit" type="submit" value="Save" />
-      </form>
+      <>
+        <h2>Edit</h2>
+        <form className={styles.addIdea} onSubmit={this.handleSubmit}>
+          <label>
+            Name
+            <input
+              className={styles.title}
+              autoFocus
+              type="text"
+              name="title"
+              onChange={e => this.handleTitleChange(e)}
+              value={this.state.title}
+            />
+          </label>
+          <label>
+            Description
+            <textarea
+              className={styles.description}
+              name="description"
+              onChange={e => this.handleDescriptionChange(e)}
+              value={this.state.description}
+            />
+          </label>
+          <div className={styles.charCount}>
+            {this.state.count}/{MAX_CHARS}
+          </div>
+          <input className="submit" type="submit" value="Save" />
+        </form>
+      </>
     );
   }
 }

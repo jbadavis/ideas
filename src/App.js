@@ -3,6 +3,8 @@ import Idea from './Idea';
 import sortIdeasAlphabetically from './utils/sortIdeasAlphabetically';
 import sortIdeasByDate from './utils/sortIdeasByDate';
 
+import styles from './App.module.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -80,26 +82,36 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Ideas</h1>
-        <label>
-          Sort:
-          <select onChange={this.handleSortChange}> 
-            <option />
-            <option value="alphabetically">Alphabetically</option>
-            <option value="date">Date</option>
-          </select>
-        </label>
-        {this.state.ideas.map((idea, i) => (
-          <Idea
-            key={i}
-            handleUpdateIdea={this.handleUpdateIdea(i)}
-            handleDeleteIdea={this.handleDeleteIdea(i)}
-            handleEditIdea={this.handleEditIdea(i)}
-            {...idea}
-          />
-        ))}
-        <button onClick={this.handleAddIdea}>Add</button>
+      <div>
+        <header className={styles.header}>
+          <h1>Ideas</h1>
+          <label>
+            Sort:
+            <select
+              className={styles.sortSelect}
+              onChange={this.handleSortChange}>
+              <option />
+              <option value="alphabetically">Alphabetically</option>
+              <option value="date">Date</option>
+            </select>
+          </label>
+          <button className={styles.addIdea} onClick={this.handleAddIdea}>
+            Add Idea
+          </button>
+        </header>
+        <main>
+          <div className={styles.ideas}>
+            {this.state.ideas.map((idea, i) => (
+              <Idea
+                key={i}
+                handleUpdateIdea={this.handleUpdateIdea(i)}
+                handleDeleteIdea={this.handleDeleteIdea(i)}
+                handleEditIdea={this.handleEditIdea(i)}
+                {...idea}
+              />
+            ))}
+          </div>
+        </main>
       </div>
     );
   }

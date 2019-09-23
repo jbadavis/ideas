@@ -1,24 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Idea if editing is falsy should update state 1`] = `
-<div>
-  <div>
+<div
+  className="idea"
+>
+  <div
+    className="content"
+  >
     <h2>
       title
     </h2>
-    <h4 />
+    <p
+      className="time"
+    />
     <p>
       description
     </p>
     <button
       className="edit"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       Edit
     </button>
     <button
       className="delete"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       Delete
     </button>
@@ -27,10 +33,12 @@ exports[`Idea if editing is falsy should update state 1`] = `
 `;
 
 exports[`Idea if editing is truthy should match snapshot 1`] = `
-<div>
+<div
+  className="idea"
+>
   <AddIdea
     description="description"
-    handleUpdateIdea={[Function]}
+    handleUpdateIdea={[MockFunction]}
     title="title"
   />
 </div>

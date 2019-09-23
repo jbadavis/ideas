@@ -3,14 +3,18 @@
 exports[`Idea should match snapshot 1`] = `
 <AddIdea
   description="description"
-  handleUpdateIdea={[Function]}
+  handleUpdateIdea={[MockFunction]}
   title="title"
 >
+  <h2>
+    Edit
+  </h2>
   <form
+    className="addIdea"
     onSubmit={[Function]}
   >
     <label>
-      Name:
+      Name
       <input
         autoFocus={true}
         className="title"
@@ -29,11 +33,13 @@ exports[`Idea should match snapshot 1`] = `
         value="description"
       />
     </label>
-    <span>
+    <div
+      className="charCount"
+    >
       11
       /
       140
-    </span>
+    </div>
     <input
       className="submit"
       type="submit"

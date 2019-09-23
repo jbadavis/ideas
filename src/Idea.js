@@ -2,6 +2,8 @@ import React from 'react';
 import {format} from 'date-fns';
 import AddIdea from './AddIdea';
 
+import styles from './Idea.module.css'
+
 const Idea = ({
   description,
   editing,
@@ -11,7 +13,7 @@ const Idea = ({
   time,
   title,
 }) => (
-  <div>
+  <div className={styles.idea}>
     {editing ? (
       <AddIdea
         title={title}
@@ -19,9 +21,9 @@ const Idea = ({
         handleUpdateIdea={handleUpdateIdea}
       />
     ) : (
-      <div>
+      <div className={styles.content}>
         <h2>{title}</h2>
-        <h4>{format(time, 'hh:mm aaa d/M/yy')}</h4>
+        <p className={styles.time}>{format(time, 'hh:mm aaa d/M/yy')}</p>
         <p>{description}</p>
         <button className="edit" onClick={handleEditIdea}>
           Edit
