@@ -1,5 +1,7 @@
 import React from 'react';
 
+const MAX_CHARS = 140;
+
 class AddIdea extends React.Component {
   constructor(props) {
     super(props);
@@ -7,16 +9,35 @@ class AddIdea extends React.Component {
     this.state = {
       title: this.props.title,
       description: this.props.description,
+      count: this.props.description.length,
+      overCount: false,
     };
   }
 
-  handleChange(e) {
-    const name = e.target.name;
+  handleTitleChange(e) {
     const value = e.target.value;
 
-    this.setState(state => ({
-      ...state,
-      [name]: value,
+    this.setState(prevState => ({
+      ...prevState,
+      title: value,
+    }));
+  }
+
+  handleDescriptionChange(e) {
+    const value = e.target.value;
+    const charCount = value.length;
+
+    this.setState(prevState => ({
+      ...prevState,
+      ...(charCount > MAX_CHARS
+        ? {
+            overCount: true,
+          }
+        : {
+            description: value,
+            count: value.length,
+            overCount: false,
+          }),
     }));
   }
 
@@ -36,7 +57,7 @@ class AddIdea extends React.Component {
             className="title"
             type="text"
             name="title"
-            onChange={e => this.handleChange(e)}
+            onChange={e => this.handleTitleChange(e)}
             value={this.state.title}
           />
         </label>
@@ -45,10 +66,13 @@ class AddIdea extends React.Component {
           <textarea
             className="description"
             name="description"
-            onChange={e => this.handleChange(e)}
+            onChange={e => this.handleDescriptionChange(e)}
             value={this.state.description}
           />
         </label>
+        <span>
+          {this.state.count}/{MAX_CHARS}
+        </span>
         <input className="submit" type="submit" value="Save" />
       </form>
     );

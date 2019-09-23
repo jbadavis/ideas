@@ -29,6 +29,11 @@ exports[`Idea should match snapshot 1`] = `
         value="description"
       />
     </label>
+    <span>
+      11
+      /
+      140
+    </span>
     <input
       className="submit"
       type="submit"
