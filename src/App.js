@@ -10,9 +10,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      ...this.props.initialState,
+      ideas: [...this.props.initialState.ideas],
       sort: '',
     };
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('ideas', JSON.stringify({ideas: this.state.ideas}));
   }
 
   handleSortChange = e => {

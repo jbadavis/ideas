@@ -55,7 +55,7 @@ class AddIdea extends React.Component {
         <h2>Edit</h2>
         <form className={styles.addIdea} onSubmit={this.handleSubmit}>
           <label>
-            Name
+            Title
             <input
               className={styles.title}
               autoFocus
