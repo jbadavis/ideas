@@ -14,7 +14,7 @@ exports[`Idea should match snapshot 1`] = `
     onSubmit={[Function]}
   >
     <label>
-      Name
+      Title
       <input
         autoFocus={true}
         className="title"

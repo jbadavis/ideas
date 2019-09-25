@@ -9,7 +9,7 @@ describe('Idea', () => {
   const handleUpdateIdea = jest.fn();
   const handleDeleteIdea = jest.fn();
   const handleEditIdea = jest.fn();
-  const timeMock = 'time';
+  const timeMock = "2000-09-24T20:40:51.117Z";
 
   describe('if editing is truthy', () => {
     it('should match snapshot', () => {
@@ -47,7 +47,7 @@ describe('Idea', () => {
     });
 
     it('should call date-fns format correctly', () => {
-      expect(format).toHaveBeenCalledWith(timeMock, 'hh:mm aaa d/M/yy');
+      expect(format).toHaveBeenCalledWith(new Date(timeMock), 'hh:mm aaa d/M/yy');
     });
 
     describe('if the edit CTA is clicked', () => {
