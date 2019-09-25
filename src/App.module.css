@@ -19,9 +19,16 @@
   margin: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 420px) {
   .ideas {
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .ideas {
+    justify-content: flex-start;
   }
 }
