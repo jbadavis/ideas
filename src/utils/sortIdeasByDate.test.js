@@ -1,9 +1,9 @@
 import sortIdeasByDate from './sortIdeasByDate';
 
 describe('sortIdeasByDate', () => {
-  const dateOne = new Date(2017, 0, 3);
-  const dateTwo = new Date(2017, 0, 2);
-  const dateThree = new Date(2017, 0, 1);
+  const dateOne = "2000-09-03T20:40:51.117Z"
+  const dateTwo = "2000-09-02T20:40:51.117Z"
+  const dateThree = "2000-09-01T20:40:51.117Z"
 
   it('should sort ideas by date', () => {
     expect(
